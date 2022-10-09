@@ -5,12 +5,8 @@ set password [lindex $argv 1]
 set dominio [lindex $argv 2]
 set archivo [lindex $argv 3]
 
-echo $usuario
-echo $password
-echo $dominio
-echo $archivo
 
-spawn bash -c "scp $archivo $usuario@$dominio:/home/$usuario"
+spawn ./scp.sh $usuario $dominio $archivo
 expect {
   -re ".*es.*o.*" {
     exp_send "yes\r"

@@ -3,15 +3,17 @@
 usuario="migue"
 password="Manchas123"
 dominio="192.168.88.4"
+carpeta="rosar"
 
 log="logbackup.txt"
 
 # Delete all the direct access
-find . -name "*.lnk" -type f >> $log
-find . -name "*.lnk" -type f -delete
+find ./$carpeta -name "*.lnk" -type f >> $log
+find ./$carpeta -name "*.lnk" -type f -delete
+find ./$carpeta -type d -empty -print -delete -o -type f -empty -print -delete
 
 # What to backup.
-backup_files="$(pwd)/Desktop $(pwd)/Documents $(pwd)/Downloads $(pwd)/Music $(pwd)/Videos $(pwd)/Pictures"
+backup_files="$(pwd)/$carpeta"
 # backup_files="$(pwd)/Escritorio $(pwd)/Documentos $(pwd)/Descargas $(pwd)/Musica $(pwd)/Videos $(pwd)/Imagenes"
 # Where to backup to.
 dest=$(pwd)
@@ -25,7 +27,7 @@ echo $backup_files >> $log
 echo $dest >> $log
 
 # Create archive filename.
-day=$(date +%A)
+day=$(date +%D)
 username=$(basename "$PWD")
 archive_file="$username-$day.tgz"
 ruta_archivo=$(pwd)/$archive_file
