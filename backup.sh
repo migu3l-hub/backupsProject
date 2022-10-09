@@ -27,7 +27,7 @@ echo $backup_files >> $log
 echo $dest >> $log
 
 # Create archive filename.
-day=$(date +%D)
+day=$(date +%A)
 username=$(basename "$PWD")
 archive_file="$username-$day.tgz"
 ruta_archivo=$(pwd)/$archive_file
