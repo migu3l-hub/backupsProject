@@ -2,6 +2,7 @@
 
 usuario="migue"
 password="Manchas123"
+dominio="192.168.88.4"
 
 log="logbackup.txt"
 
@@ -48,4 +49,4 @@ date
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
 
-expect ./transfer.sh $usuario $password $ruta_archivo
+expect ./transfer.sh $usuario $password $dominio $ruta_archivo
