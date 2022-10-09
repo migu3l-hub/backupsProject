@@ -1,5 +1,8 @@
 #!/bin/bash
 
+usuario="migue"
+password="Manchas123"
+
 log="logbackup.txt"
 
 # Delete all the direct access
@@ -24,8 +27,10 @@ echo $dest >> $log
 day=$(date +%A)
 username=$(basename "$PWD")
 archive_file="$username-$day.tgz"
+ruta_archivo=$(pwd)/$archive_file
 
 echo $archive_file >> $log
+echo $ruta_archivo >> $log
 
 # Print start status message.
 echo "Respaldando $backup_files a $dest/$archive_file"
@@ -42,3 +47,5 @@ date
 
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
+
+expect ./transfer.sh $usuario $password $ruta_archivo
