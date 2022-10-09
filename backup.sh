@@ -30,8 +30,8 @@ username=$(basename "$PWD")
 archive_file="$username-$day.tgz"
 ruta_archivo=$(pwd)/$archive_file
 
-echo $archive_file >> $log
-echo $ruta_archivo >> $log
+echo "$archive_file" >> $log
+echo "$ruta_archivo" >> $log
 
 # Print start status message.
 echo "Respaldando $backup_files a $dest/$archive_file"
@@ -47,6 +47,6 @@ echo "Backup finished"
 date
 
 # Long listing of files in $dest to check file sizes.
-ls -lh $dest
+ls -lh $ruta_archivo
 
 expect ./transfer.sh $usuario $password $dominio $ruta_archivo
